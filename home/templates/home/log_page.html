@@ -1,0 +1,49 @@
+{% extends 'home/base.html' %}
+
+{% block import %}
+    {% load static %}
+
+{% endblock %}
+
+{% block title %}KPI social network{% endblock %}
+
+{% block body %}
+  <div class="breadcrumb">
+    <div class="container form-control-static">
+      <div class="panel panel-danger">
+
+        <div class="text-center">
+            <h2>Welcome someone. Show me who you are!</h2>
+        </div>
+
+        <div class="bg-warning">
+
+          <div class="panel-default text-success col-lg-offset-5">
+              <form action="" method="post">
+
+                {% csrf_token %}
+                <label for="username"><h4>Login:</h4></label>
+                <input type="text" name="username" value="" id="username">
+                <br>
+
+                <label for="password"><h4>Password:</h4></label>
+                <input type="password" name="password" value="" id="password">
+                <br>
+
+                <div>
+                  <input type="submit" value="Login" />
+                  <input type="hidden" name="next" value="{{ next|escape }}" />
+
+                  <a href="{% url 'home:log_up' %}">Log up</a>
+                </div>
+
+              </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

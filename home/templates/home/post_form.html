@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+
+{% block import %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}Add new post{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <div class="container text-center">
+        <h3>Hello {{user.username}}, you are welcome to add a new post!</h3>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <span class="text-danger small">{{ field.errors }}</span>
+                            <label class="control-label col-sm-4">{{ field.label_tag }}</label>
+                            <div class="col-sm-1">{{ field }}</div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="col-sm-offset-4">
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

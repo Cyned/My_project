@@ -1,0 +1,8 @@
+{% block post %}
+    <div class="panel panel-body panel-danger">
+        <div class="page-header">
+            <h3>{{ post.caption }}</h3>
+        </div>
+        <p>{{ post.date|date:"Y-m-d" }}</p>
+    </div>
+{% endblock %}}

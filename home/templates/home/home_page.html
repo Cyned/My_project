@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %}
+
+
+{% block title %}KPI social network{% endblock %}
+{% block body %}
+<tbody>
+<table>
+
+    <tr>
+        <td style="width: 22%"><div><p></p></div></td>
+
+        <td style="width: 56%">
+            <div class="page-header container">
+                <h1 class="text-center text-info"> Here is an amazing advertisement!!!Really^</h1>
+            </div>
+
+            <div class="container container-fluid">
+                {% for post in posts %}
+                    <div class="container">
+                        <div class="panel panel-body panel-danger">
+                            <div class="page-header">
+                                <h3>{{ post.caption }}</h3>
+                                <p>{{ post.date|date:"Y-m-d" }}</p>
+                                {% if post.image %}
+                                    <img src="{{ post.image.url }}">
+                                {% endif %}
+                            </div>
+                            <div class="container">
+                                <p>{{ post.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </td>
+
+         <td style="width: 22%; padding-top: 10%; padding-right: 4%; padding-left: 4%; vertical-align: top;">
+            {% if user.is_authenticated %}
+             
+                <table>
+                    <tr>
+                         <td>
+                             <label class="text-info float-right align-left">Username: </label>
+                         </td>
+                         <td style="padding-left: 20%">
+                             <p class="align-right">{{ user.username }}</p>
+                         </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label class="text-info">Name: </label>
+                        </td>
+                        <td style="padding-left: 20%">
+                            <p>{{ user.first_name }} {{ user.last_name}}</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="text-info">Email: </label>
+                        </td>
+                        <td style="padding-left: 20%">
+                            <p>{{ user.email }}</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="text-danger">Rating: </label>
+                        </td>
+                        <td style="padding-left: 20%">
+                            <p>0</p>
+                        </td>
+                    </tr>
+                </table>
+                
+            {% endif %}
+         </td>
+    </tr>
+</table>
+</tbody>
+{% endblock %}
