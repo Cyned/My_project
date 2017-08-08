@@ -6,11 +6,9 @@
 
     {% load static %}
     <link href="{% static 'home/css/bootstrap.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'home/css/navbar_menu.css' %}" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+    <link href="{% static 'home/css/base.css' %}" type="text/css" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">-->
 
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     {% block import %}{% endblock %}
 
     <meta charset="utf-8">
@@ -48,7 +46,7 @@
           <ul class="nav navbar-nav navbar-right">
 
             <li class="menu dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button">Services<span class="caret"></span></a>
+                <a class="dropdown-toggle menu-item" data-toggle="dropdown" role="button">Services<span class="caret"></span></a>
 
                 <ul class="navbar-inverse dropdown-menu" style="font-size: large; text-align: right;">
 
@@ -59,11 +57,11 @@
 
             </li>
 
-            <li><a href="#">About</a></li>
+            <li><a class="menu-item" href="{% url 'about:about'%}">About</a></li>
             {% if user.is_authenticated %}
 
               <li class="menu dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button">{{ user.username }}<span class="caret"></span></a>
+                <a class="dropdown-toggle menu-item" data-toggle="dropdown" role="button">{{ user.username }}<span class="caret"></span></a>
 
                 <ul class="navbar-inverse dropdown-menu" style="font-size: large; text-align: right;">
                   <li><a href="{% url 'home:detail_user' user.pk %}" style="color: white">Profile</a></li>
@@ -76,7 +74,7 @@
               </li>
 
             {% else %}
-              <li><a href="{% url 'home:login' %}">Log in</a></li>
+              <li><a class="menu-item" href="{% url 'home:login' %}">Log in</a></li>
             {% endif %}
           </ul>
 
@@ -87,6 +85,10 @@
 
     {% block body %}{% endblock %}
 
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    {% block import_script %}{% endblock %}
   </body>
 
 </html>

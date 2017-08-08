@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+
+{% block import %}
+    {% load static %}
+    <link href="{% static 'about/css/info_page.css'%}" type="text/css" rel="stylesheet">
+{% endblock %}
+{% block title %}INFO page{% endblock %}
+{% block body %}
+
+<div class="container">
+
+    <div class="text-center text-info">
+        <h1>Info page</h1>
+    </div>
+
+    <!-- Photos -->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img alt="1" src="IMG_20170528_051638.jpg" style="width:100%">
+          <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img alt="2" src="IMG_20170621_162528.jpg" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img alt="3" src="IMG_20170621_162557.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- Google MAP-->
+    <div class="container" id="map">
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block import_script %}
+    {% load static %}
+    <script src="{% static 'about/js/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+{% endblock %}

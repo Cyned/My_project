@@ -1,15 +1,20 @@
 {% extends 'home/base.html' %}
 
+{% block import %}
+    {% load static %}
+    <link href="{% static 'home/css/home_page.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
 
 {% block title %}KPI social network{% endblock %}
 {% block body %}
+
 <tbody>
 <table>
 
     <tr>
-        <td style="width: 22%"><div><p></p></div></td>
+        <td id="first_column"><div><p></p></div></td>
 
-        <td style="width: 56%">
+        <td id="second_column">
             <div class="page-header container">
                 <h1 class="text-center text-info"> Here is an amazing advertisement!!!Really^</h1>
             </div>
@@ -34,15 +39,41 @@
             </div>
         </td>
 
-         <td style="width: 22%; padding-top: 10%; padding-right: 4%; padding-left: 4%; vertical-align: top;">
+         <td id="third_column">
             {% if user.is_authenticated %}
-             
+
+                <!-- CALENDAR -->
+                <div class="my_calendar">
+                     <div class="month">
+                         <ul>
+                             <li class="prev" onclick="prev()">&#10094;</li>
+                             <li class="next" onclick="next()">&#10095;</li>
+                             <li id="month" style="text-align:center"></li>
+                             <li style="text-align:center"><span id="year" style="font-size:18px"></span></li>
+                         </ul>
+                     </div>
+
+                     <ul class="weekdays">
+                         <li>Mo</li>
+                         <li>Tu</li>
+                         <li>We</li>
+                         <li>Th</li>
+                         <li>Fr</li>
+                         <li>Sa</li>
+                         <li>Su</li>
+                     </ul>
+
+                     <ul id="dates" class="days"></ul>
+                </div>
+
+             <!-- Info about the user -->
+
                 <table>
                     <tr>
                          <td>
                              <label class="text-info float-right align-left">Username: </label>
                          </td>
-                         <td style="padding-left: 20%">
+                         <td class="values">
                              <p class="align-right">{{ user.username }}</p>
                          </td>
                     </tr>
@@ -51,7 +82,7 @@
                         <td>
                             <label class="text-info">Name: </label>
                         </td>
-                        <td style="padding-left: 20%">
+                        <td class="values">
                             <p>{{ user.first_name }} {{ user.last_name}}</p>
                         </td>
                     </tr>
@@ -60,7 +91,7 @@
                         <td>
                             <label class="text-info">Email: </label>
                         </td>
-                        <td style="padding-left: 20%">
+                        <td class="values">
                             <p>{{ user.email }}</p>
                         </td>
                     </tr>
@@ -69,7 +100,7 @@
                         <td>
                             <label class="text-danger">Rating: </label>
                         </td>
-                        <td style="padding-left: 20%">
+                        <td class="values">
                             <p>0</p>
                         </td>
                     </tr>
@@ -80,4 +111,9 @@
     </tr>
 </table>
 </tbody>
+{% endblock %}
+
+{% block import_script %}
+    {% load static %}
+    <script src="{% static 'home/js/home_page.js' %}"></script>
 {% endblock %}

@@ -17,7 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+    # info page (about)
+    url(r'^about', include('about.urls')),
+
     # home page
     url(r'^', include('home.urls')),
+
     url(r'^admin/', admin.site.urls),
 ]

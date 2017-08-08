@@ -2,7 +2,11 @@ body {
     background-color: #ebe7e7;
 }
 
-.menu {
+.menu-item {
     font-size: large;
     text-shadow: #002a80;
+}
+
+.brand {
+    font-size: xx-large;
 }
