@@ -86,18 +86,21 @@ function getDate() {
 function next() {
     "use strict";
     date.setMonth(date.getMonth()+1);
-    showDates();
-    getDate();
+    work();
 }
 
 function prev() {
     "use strict";
     date.setMonth(date.getMonth()-1);
+    work();
+}
+
+function work() {
+    "use strict";
     showDates();
     getDate();
 }
 
 var date = new Date();
 var DATE = new Date();
-showDates();
-getDate();
+work();

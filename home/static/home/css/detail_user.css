@@ -1,0 +1,11 @@
+.profile_photo_div {
+    height: 20px;
+    width: 20px;
+    text-align: right;
+}
+
+.profile_photo {
+    width: 20%;
+    height: 20%;
+    text-align: right;
+}

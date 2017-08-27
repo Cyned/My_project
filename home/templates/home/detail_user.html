@@ -2,6 +2,7 @@
 
 {% block import %}
     {% load static %}
+    <link href="home/css/detail_user.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block title %}{{user.username}}{% endblock %}
@@ -12,10 +13,9 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="page-header">
-                    <div class="col-xs-1">
-                        <!--<img src="../../../media/human.png" alt="Human photo" align="left">-->
+                    <div class="profile_photo_div">
                         {% load staticfiles %}
-                        <img src="{% static 'home/human.png' %}" alt="Human photo"/>
+                        <img class="profile_photo" src="{% static 'human.png' %}" alt="Human photo"/>
                     </div>
                     <h1>{{user.username}}</h1>
                     <h3>{{user.first_name}} {{user.last_name}}</h3>
@@ -31,6 +31,9 @@
                 <div class="page-header">
                     <h3>{{ post.caption }}</h3>
                     <p>{{ post.date|date:"Y-m-d" }}</p>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}">
+                    {% endif %}
                 </div>
                 <div class="container">
                     <p>{{ post.text }}</p>

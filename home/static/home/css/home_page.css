@@ -87,7 +87,7 @@ ul {list-style-type: none;}
     color: white
 }
 
-/* Add media queries for smaller screens */
+/* Add static queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}
 }
